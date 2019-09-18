@@ -7,6 +7,7 @@ import java.util.Arrays;
  * that is used to recognize the operator in an input string, and to represent the operator in an
  * output string
  */
+
 public enum Operator {
 
   /** Pops 2 values from stack, pushes sum of the 2 back onto stack. */
@@ -30,20 +31,14 @@ public enum Operator {
     this.token = token;
   }
 
-  /**
-   * Exercises the Operator enum by printing all of the enumerated values (as an array).
-   *
-   * @param args command line arguments (ignored).
-   */
-  public static void main(String[] args) {
-    System.out.println(Arrays.toString(Operator.values()));
-  }
-
   @Override
   public String toString() {
     return token;
   }
 
+  public static String tokenPattern() {
+    return "(?:^|\\s)(\\+|\\-|\\*|\\/|\\^|\\%|sqrt)(?:\\s|$)";
+  }
   // TODO Add operate method w/ switch (later version will use @override).
 
 }
